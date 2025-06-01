@@ -8,6 +8,4 @@ export interface ClientRepository {
   delete(id: string): Promise<void>;
 
   list(): Promise<Client[]>;
-
-  findAll(): Promise<Client[]>;
 }

@@ -6,6 +6,6 @@ export interface ClientRepository {
   update(client: Client): Promise<Client>;
 
   delete(id: string): Promise<void>;
-
+  
   list(): Promise<Client[]>;
 }

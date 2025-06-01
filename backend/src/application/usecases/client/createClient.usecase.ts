@@ -2,10 +2,21 @@ import { ClientRepository } from '../../../domain/repositories/Client.repository
 import { Client } from '../../../domain/models/Client';
 import { randomUUID } from 'crypto';
 
-export class CreateClient {
-  constructor(private repo: ClientRepository) {}
+interface CreateClientProps {
+  client_name: string;
+  email: string;
+  status: boolean;
+}
 
-  async execute(data: Omit<Client, 'client_id'>): Promise<Client> {
-    return this.repo.create({ ...data, client_id: randomUUID() });
+export class CreateClient {
+  constructor(private clientRepo: ClientRepository) {}
+
+  async execute(data: CreateClientProps): Promise<Client> {
+    const client: Client = {
+      ...data,
+      client_id: randomUUID(),
+    };
+
+    return this.clientRepo.create(client);
   }
 }

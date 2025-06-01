@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/server/index.js",
   "scripts": {
-    "dev": "nodemon --exec 'ts-node --transpile-only' src/server/index.ts",
+    "dev": "nodemon --exec ts-node --transpile-only src/server/index.ts",
     "dev:ts-node": "ts-node-dev --respawn --transpile-only src/server/index.ts",
     "build": "tsc",
     "start": "node dist/server/index.js",

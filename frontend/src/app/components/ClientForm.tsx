@@ -36,7 +36,7 @@ export function ClientForm({ onSuccess }: ClientFormProps) {
       {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
       <div className="flex items-center gap-2 text-gray-700">
-        <label>Status</label>
+        <label>Ativar</label>
         <Switch {...register('status')} />
       </div>
 

@@ -76,7 +76,7 @@ export default function AssetsPage() {
       </div>
 
       <Card className="border-0 shadow-sm">
-        <CardHeader className="bg-white">
+        <CardHeader className="bg-white text-gray-900" >
           <CardTitle className="flex items-center space-x-2">
             <Users className="h-5 w-5 text-emerald-600" />
             <span>Seleção de Cliente</span>

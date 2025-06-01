@@ -1,8 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/server/index.js",
   "scripts": {
+    "dev": "nodemon --exec ts-node --transpile-only src/server/index.ts",
+    "dev:ts-node": "ts-node-dev --respawn --transpile-only src/server/index.ts",
+    "build": "tsc",
+    "start": "node dist/server/index.js",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,7 +23,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.29",
+    "nodemon": "^3.1.4",
     "prisma": "^6.8.2",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }

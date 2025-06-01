@@ -7,7 +7,6 @@ import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Switch } from '@/app/components/ui/switch';
 
-// Define the props interface for ClientForm
 interface ClientFormProps {
   onSuccess: () => void;
 }

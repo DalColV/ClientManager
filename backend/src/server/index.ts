@@ -1,5 +1,5 @@
 import Fastify from 'fastify';
-import { registerClientRoutes } from '../infra/routes/Client.routes';
+import { registerClientRoutes } from '../infra/routes/client.routes';
 
 const app = Fastify({ logger: true });
 

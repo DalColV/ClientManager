@@ -7,7 +7,12 @@ import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Switch } from '@/app/components/ui/switch';
 
-export function ClientForm() {
+// Define the props interface for ClientForm
+interface ClientFormProps {
+  onSuccess: () => void;
+}
+
+export function ClientForm({ onSuccess }: ClientFormProps) {
   const {
     register,
     handleSubmit,
@@ -18,6 +23,7 @@ export function ClientForm() {
   const onSubmit = async (data: ClientFormData) => {
     await api.post('/clients', data);
     reset();
+    onSuccess(); 
   };
 
   return (

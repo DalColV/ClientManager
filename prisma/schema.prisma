@@ -7,3 +7,19 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Client {
+  client_id   String   @id @default(uuid())
+  client_name String
+  email       String   @unique
+  status      Boolean
+  assets      Asset[]  @relation("ClientAssets")
+}
+
+model Asset {
+  asset_id     String  @id @default(uuid())
+  asset_name   String
+  currentValue Float
+  clientId     String
+  client       Client  @relation("ClientAssets", fields: [clientId], references: [client_id], onDelete: Cascade)
+}

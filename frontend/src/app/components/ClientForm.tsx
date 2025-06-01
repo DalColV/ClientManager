@@ -35,7 +35,7 @@ export function ClientForm({ onSuccess }: ClientFormProps) {
       <Input placeholder="Email" type="email" {...register('email')} />
       {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 text-gray-700">
         <label>Status</label>
         <Switch {...register('status')} />
       </div>

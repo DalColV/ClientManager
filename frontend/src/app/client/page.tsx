@@ -42,11 +42,11 @@ export default function ClientsPage() {
 
       <Card className="border-0 shadow-sm">
         <CardHeader className="bg-white">
-          <CardTitle className="flex items-center space-x-2">
+          <CardTitle className="flex items-center space-x-2 text-slate-900">
             <Users className="h-5 w-5 text-emerald-600" />
             <span>Clientes</span>
           </CardTitle>
-          <CardDescription>
+          <CardDescription className='text-slate-600'>
             Cadastre novos clientes e gerencie os existentes
           </CardDescription>
         </CardHeader>

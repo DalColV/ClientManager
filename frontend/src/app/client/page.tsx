@@ -14,9 +14,11 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/app/components/ui/tabs';
-import { Users, UserPlus } from 'lucide-react';
+import { Button } from '@/app/components/ui/button';
+import { Users, UserPlus, Home } from 'lucide-react';
 import { ClientForm } from '@/app/components/ClientForm';
 import { ClientTable } from '@/app/components/ClientTable';
+import Link from 'next/link';
 
 export default function ClientsPage() {
   const [activeTab, setActiveTab] = useState('list');
@@ -28,15 +30,23 @@ export default function ClientsPage() {
           <h1 className="text-3xl font-bold text-slate-900">
             Gestão de Clientes
           </h1>
-          <p className="text-slate-600 mt-1">
+          <p className="text-slate-700 mt-1">
             Gerencie seus clientes e suas informações
           </p>
         </div>
-        <div className="flex items-center space-x-2">
-          <Users className="h-5 w-5 text-emerald-600" />
-          <span className="text-sm font-medium text-slate-700">
-            Client Management
-          </span>
+        <div className="flex flex-col items-end space-y-2">
+          <div className="flex items-center space-x-2">
+            <Users className="h-5 w-5 text-emerald-600" />
+            <span className="text-sm font-medium text-slate-700">
+              Client Management
+            </span>
+          </div>
+          <Button variant="default" size="sm" asChild>
+            <Link href="/">
+              <Home className="h-4 w-4 mr-2" />
+              Dashboard
+            </Link>
+          </Button>
         </div>
       </div>
 
@@ -46,7 +56,7 @@ export default function ClientsPage() {
             <Users className="h-5 w-5 text-emerald-600" />
             <span>Clientes</span>
           </CardTitle>
-          <CardDescription className='text-slate-600'>
+          <CardDescription className="text-slate-700">
             Cadastre novos clientes e gerencie os existentes
           </CardDescription>
         </CardHeader>

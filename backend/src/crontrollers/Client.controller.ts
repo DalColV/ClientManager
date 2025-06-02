@@ -10,7 +10,7 @@ export class ClientController {
   ) {}
 
   public registerRoutes(app: FastifyInstance): void {
-    app.post('/clients', async (req, res) => {
+    app.post('/client', async (req, res) => {
       console.log('Corpo recebido:', req.body);
 
       const parsed = clientSchema.safeParse(req.body);
@@ -26,7 +26,7 @@ export class ClientController {
       return res.code(201).send(client);
     });
 
-    app.get('/clients', async (_req: FastifyRequest, res: FastifyReply) => {
+    app.get('/client', async (_req: FastifyRequest, res: FastifyReply) => {
         const clients = await this.listClients.execute();
 
         if(!clients) {

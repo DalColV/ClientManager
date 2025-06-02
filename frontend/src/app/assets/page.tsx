@@ -32,7 +32,7 @@ import Link from 'next/link';
 interface Client {
   client_id: string;
   client_name: string;
-  status: 'active' | 'inactive';
+  status: boolean;
 }
 
 interface Asset {
@@ -51,7 +51,7 @@ export default function AssetsPage() {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const res = await api.get('/clients');
+        const res = await api.get('/client');
         setClients(res.data);
       } catch (error) {
         console.error('Erro ao buscar clientes:', error);
@@ -69,7 +69,7 @@ export default function AssetsPage() {
 
       setLoading(true);
       try {
-        const res = await api.get(`/clients/${selectedClient}/assets`);
+        const res = await api.get(`/client/${selectedClient}/assets`);
         setAssets(res.data);
       } catch (error) {
         console.error('Erro ao buscar ativos:', error);
@@ -132,12 +132,8 @@ export default function AssetsPage() {
                 <SelectItem key={client.client_id} value={client.client_id}>
                   <div className="flex items-center space-x-2">
                     <span>{client.client_name}</span>
-                    <Badge
-                      variant={
-                        client.status === 'active' ? 'default' : 'secondary'
-                      }
-                    >
-                      {client.status === 'active' ? 'Ativo' : 'Inativo'}
+                    <Badge variant={client.status ? 'default' : 'secondary'}>
+                      {client.status ? 'Ativo' : 'Inativo'}
                     </Badge>
                   </div>
                 </SelectItem>
@@ -161,14 +157,10 @@ export default function AssetsPage() {
                 {selectedClientData.client_name}
               </div>
               <Badge
-                variant={
-                  selectedClientData.status === 'active'
-                    ? 'default'
-                    : 'secondary'
-                }
+                variant={selectedClientData.status ? 'default' : 'secondary'}
                 className="mt-2"
               >
-                {selectedClientData.status === 'active' ? 'Ativo' : 'Inativo'}
+                {selectedClientData.status ? 'Ativo' : 'Inativo'}
               </Badge>
             </CardContent>
           </Card>
@@ -248,10 +240,7 @@ export default function AssetsPage() {
                         ? (asset.currentValue / totalValue) * 100
                         : 0;
                     return (
-                      <TableRow
-                        key={asset.asset_id}
-                        className="hover:bg-slate-50"
-                      >
+                      <TableRow key={asset.asset_id}>
                         <TableCell className="font-medium">
                           {asset.asset_name}
                         </TableCell>

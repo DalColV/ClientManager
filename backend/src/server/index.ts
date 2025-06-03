@@ -1,5 +1,5 @@
 import Fastify from 'fastify';
-import { registerClientRoutes } from '../infra/routes/client.routes';
+import { registerAssetRoutes, registerClientRoutes } from '../infra/routes/client.routes';
 import cors from '@fastify/cors';
 
 const app = Fastify({ logger: true });
@@ -11,6 +11,8 @@ app.register(cors, {
 });
 
 registerClientRoutes(app);
+registerAssetRoutes(app);
+
 
 app.listen({ port: 3001 }, (err, address) => {
   if (err) {

@@ -1,10 +1,10 @@
 import { AssetRepository } from '../../../domain/repositories/Asset.repository';
 import { Asset } from '../../../domain/models/Asset';
 
-export class ListAssetsByClient {
-  constructor(private repo: AssetRepository) {}
+export class ListAssets {
+  constructor(private assetRepository: AssetRepository) {}
 
-  async execute(clientId: string): Promise<Asset[]> {
-    return this.repo.findByClientId(clientId);
+  async execute(): Promise<Asset[]> {
+    return await this.assetRepository.findAll();
   }
 }

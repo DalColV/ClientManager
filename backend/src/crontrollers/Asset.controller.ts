@@ -1,12 +1,14 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { CreateAsset } from '../application/usecases/asset/createAsset.usecase';
 import { assetSchema } from '../schemas/asset.schema';
-import { ListAssetsByClient } from '../application/usecases/asset/listAsset.usecase';
+import { ListAssetsByClient } from '../application/usecases/asset/listAssetByClient.usecase';
+import { ListAssets } from '../application/usecases/asset/listAsset.usecase';
 
 export class AssetController {
   constructor(
     private createAsset: CreateAsset,
     private listAssets: ListAssetsByClient,
+    private listAllAssets: ListAssets,
   ) {}
 
   public registerRoutes(app: FastifyInstance): void {
@@ -42,5 +44,15 @@ export class AssetController {
       return res.code(200).send(assets);
     });
 
+    app.get('/list-asset', async (_req: FastifyRequest, res: FastifyReply) => {
+      const assets = await this.listAllAssets.execute();
+
+      if(!assets) {
+        return res.status(404).send({ error: 'No assets found' });
+      }
+
+      return res.code(200).send(assets);
+    });
   }
+
 }

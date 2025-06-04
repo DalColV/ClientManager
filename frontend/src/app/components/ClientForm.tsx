@@ -1,4 +1,3 @@
-// frontend/src/app/components/ClientForm.tsx
 'use client';
 
 import type React from 'react';

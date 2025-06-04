@@ -1,4 +1,3 @@
-# Etapa de build
 FROM node:20-alpine AS builder
 
 WORKDIR /app
@@ -10,7 +9,6 @@ COPY . .
 RUN npx prisma generate
 RUN npm run build
 
-# Etapa de execução
 FROM node:20-alpine
 
 WORKDIR /app

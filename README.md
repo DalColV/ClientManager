@@ -17,7 +17,7 @@ O ClientManager é uma solução robusta que combina um backend eficiente e um f
 
 🔍 Consulta por Cliente: Visualize todas as informações registradas sobre a carteira de ativos de um cliente específico.
 
-🐳 Containerização: Backend, frontend e banco de dados MySQL orquestrados com Docker Compose.
+🐳 Containerização: Backend e banco de dados MySQL orquestrados com Docker Compose.
 
 ✅ Validação: Uso de Zod para validação de payloads no backend e frontend.
 
@@ -52,6 +52,6 @@ Axios: Requisições HTTP simplificadas.
 DevOps
 
 
-Docker Compose: Orquestração de serviços (backend, frontend e MySQL).
+Docker Compose: Orquestração de serviços (backend e MySQL).
 
 MySQL: Imagem oficial do Docker para o banco de dados.

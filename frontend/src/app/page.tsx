@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -8,8 +11,35 @@ import {
 import { Button } from '@/app/components/ui/button';
 import Link from 'next/link';
 import { BarChart3, Users, TrendingUp, ArrowRight } from 'lucide-react';
+import { api } from '../app/api/api';
 
 export default function Home() {
+  const [totalClients, setTotalClients] = useState(0);
+  const [totalAssets, setTotalAssets] = useState(0);
+  const [totalValue, setTotalValue] = useState(0);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const clientsRes = await api.get('/client');
+        setTotalClients(clientsRes.data.length);
+
+        const assetsRes = await api.get('/list-asset');
+        setTotalAssets(assetsRes.data.length);
+
+        const total = assetsRes.data.reduce(
+          (acc: number, asset: { currentValue: number }) => acc + asset.currentValue,
+          0
+        );
+        setTotalValue(total);
+      } catch (error) {
+        console.error('Erro ao carregar dados do dashboard:', error);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
   return (
     <div className="p-6 space-y-6 bg-slate-50 min-h-screen">
       <div className="flex items-center justify-between">
@@ -30,7 +60,9 @@ export default function Home() {
             <Users className="h-4 w-4 text-emerald-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-slate-900">24</div>
+            <div className="text-2xl font-bold text-slate-900">
+              {totalClients}
+            </div>
             <p className="text-xs text-slate-700 mt-1">clientes ativos</p>
           </CardContent>
         </Card>
@@ -43,7 +75,9 @@ export default function Home() {
             <TrendingUp className="h-4 w-4 text-emerald-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-slate-900">86</div>
+            <div className="text-2xl font-bold text-slate-900">
+              {totalAssets}
+            </div>
             <p className="text-xs text-slate-700 mt-1">ativos em carteira</p>
           </CardContent>
         </Card>
@@ -57,7 +91,9 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-slate-900">
-              R$ 4.325.642,00
+              {`R$ ${totalValue.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+              })}`}
             </div>
             <p className="text-xs text-slate-700 mt-1">em investimentos</p>
           </CardContent>

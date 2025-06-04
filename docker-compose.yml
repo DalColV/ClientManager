@@ -21,14 +21,5 @@ services:
     ports:
       - '3001:3001'
 
-  frontend:
-    build: ./frontend
-    depends_on:
-      - backend
-    environment:
-      NEXT_PUBLIC_API_URL: http://localhost:3001
-    ports:
-      - '3000:3000'
-
 volumes:
   db-data:

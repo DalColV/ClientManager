@@ -1,35 +1,57 @@
-# ClientManager 
+🌟 ClientManager
 
-Este projeto é uma aplicação full-stack desenvolvida para um escritório de investimentos fictício, com o objetivo de gerenciar clientes e exibir informações básicas de ativos financeiros. A aplicação é construída com uma stack em TypeScript, containerizada com Docker, e possui um backend em Fastify com Prisma para interagir com o banco de dados MySQL, além de um frontend em Next.js com componentes de UI do ShadCN. 
-
-Funcionalidades:
+Uma aplicação full-stack moderna desenvolvida para um escritório de investimentos fictício, projetada para gerenciar clientes e exibir informações de ativos financeiros. Construída com TypeScript, containerizada com Docker, e composta por um backend em Fastify com Prisma para integração com MySQL e um frontend em Next.js com componentes de UI do ShadCN.
 
 
-Gerenciamento de Clientes: Operações CRUD para clientes (criar, editar, listar e deletar).
-Listagem de Ativos: Exibição de uma lista estática de ativos financeiros (por exemplo, "Ação X", "Fundo TAL") com seus valores atuais.
-Consulta individual por Cliente: traz todas as informações registradas sobr a carteira de ativos do cliente.
-Containerização: Serviços de backend, frontend e banco de dados MySQL orquestrados via Docker Compose.
-Validação: Validação de payloads com Zod no backend e frontend.
-Interface de Usuário: Interface simples e funcional construída com Next.js, ShadCN, React Query, React Hook Form e Axios para interações com a API.
+🚀 Visão Geral
 
-Stack:
+O ClientManager é uma solução robusta que combina um backend eficiente e um frontend funcional para atender às necessidades de gerenciamento de clientes e ativos financeiros. A aplicação é 100% escrita em TypeScript, garantindo segurança de tipos e escalabilidade. Por isso o backend segue a Clean Archtecture + DDD.
+
+
+✨ Funcionalidades
+
+
+📋 Gerenciamento de Clientes: Operações CRUD completas (criar, listar, editar e deletar) para gerenciar informações de clientes (nome, e-mail, status - ativo/inativo).
+
+💰 Listagem de Ativos: Exibição de uma lista estática de ativos financeiros (ex.: "Ação X", "Fundo TAL") com valores atuais.
+
+🔍 Consulta por Cliente: Visualize todas as informações registradas sobre a carteira de ativos de um cliente específico.
+
+🐳 Containerização: Backend, frontend e banco de dados MySQL orquestrados com Docker Compose.
+
+✅ Validação: Uso de Zod para validação de payloads no backend e frontend.
+
+🖼️ Interface de Usuário: Interface funcional e minimalista com Next.js, ShadCN, React Query, React Hook Form e Axios.
+
+
+🛠️ Stack Tecnológica
 
 Backend
 
-Node.js com Fastify: Framework de servidor leve e performático.
-Prisma ORM: Gerencia interações com o banco de dados MySQL.
-Zod: Validação de esquemas para payloads de requisições.
-MySQL: Banco de dados relacional.
+Node.js + Fastify: Framework leve e de alta performance para APIs.
+
+Prisma ORM: Integração simplificada com o banco de dados MySQL.
+
+Zod: Validação robusta de payloads de requisições.
+
+MySQL: Banco de dados relacional para armazenamento persistente.
+
 
 Frontend
 
-Next.js: Framework React para renderização no lado do servidor e geração de sites estáticos.
-ShadCN: Componentes de UI reutilizáveis e personalizáveis para uma aparência consistente.
-React Query: Gerencia busca e cache de dados do backend.
-React Hook Form + Zod: Manipulação e validação de formulários.
-Axios: Cliente HTTP para requisições à API.
+Next.js: Framework React para renderização no lado do servidor e sites estáticos.
+
+ShadCN: Componentes de UI reutilizáveis e personalizáveis.
+
+React Query: Gerenciamento eficiente de busca e cache de dados.
+
+React Hook Form + Zod: Formulários com validação integrada.
+
+Axios: Requisições HTTP simplificadas.
 
 DevOps
 
-Docker Compose: Orquestra o serviço de backend, frontend e o banco de dados MySQL.
-MySQL: Imagem oficial do Docker para o serviço de banco de dados.
+
+Docker Compose: Orquestração de serviços (backend, frontend e MySQL).
+
+MySQL: Imagem oficial do Docker para o banco de dados.

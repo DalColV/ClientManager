@@ -3,7 +3,7 @@ import { CreateClient } from '../application/usecases/client/createClient.usecas
 import { ListClients } from '../application/usecases/client/listClient.usecase';
 import { UpdateClient } from '../application/usecases/client/updateClient.usecase';
 import { DeleteClient } from '../application/usecases/client/deleteClient.usecase';
-import { clientSchema } from '../../src/schemas/client.schema';
+import { clientSchema } from '../schemas/client.schema';
 
 interface UpdateClientParams {
   id: string;

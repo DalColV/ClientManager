@@ -5,7 +5,7 @@ Uma aplicação full-stack moderna desenvolvida para um escritório de investime
 
 🚀 Visão Geral
 
-O ClientManager é uma solução robusta que combina um backend eficiente e um frontend funcional para atender às necessidades de gerenciamento de clientes e ativos financeiros. A aplicação é 100% escrita em TypeScript, garantindo segurança de tipos e escalabilidade. Por isso o backend segue a Clean Archtecture + DDD.
+O ClientManager é uma solução robusta que combina um backend eficiente e um frontend funcional para atender às necessidades de gerenciamento de clientes e ativos financeiros. A aplicação é 100% escrita em TypeScript, garantindo segurança de tipos e escalabilidade. Por falar em esalabilidade, desenvolvi o backend seguindo a Clean Archtecture + DDD.
 
 
 ✨ Funcionalidades
